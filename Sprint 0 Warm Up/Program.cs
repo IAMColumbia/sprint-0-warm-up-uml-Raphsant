@@ -24,6 +24,7 @@ namespace Sprint_0_Warm_Up
                  */
                 Airplane ap = new Airplane();
                 //Air plane should inherit from AerialVehicle
+
                 WriteLine(ap.About());
                 /* Output AirplaneAbout:
                  * This OOPFlyingVehicle.Airplane has a max altitude of 41000 ft.
@@ -54,7 +55,7 @@ namespace Sprint_0_Warm_Up
                 ap.FlyUp(44000);    //Fly up tp 45,000 ft shouldn't work
                 WriteLine(ap.About());
                 WriteLine("\nCall ap.FlyUp(44000) Fly up another 40,000ft shouldn't work");
-                ap.FlyUp(40000);    //Fly up tp 41,000 ft shouldn't work
+                ap.FlyUp(40000);    //Fly up tp 41,000 ft shouldn't work // THE UML SAYS THE AIRPLANE MAX ALTITUDE IS 41,000 FT
                 WriteLine(ap.About());
                 /*
                  * Output:

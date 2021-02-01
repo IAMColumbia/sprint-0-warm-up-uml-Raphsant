@@ -12,7 +12,7 @@ namespace Sprint_0_Warm_Up
 
         public int MaxAltitude { get; set; }
 
-        
+
 
         public AerialVehicle()
         {
@@ -22,7 +22,8 @@ namespace Sprint_0_Warm_Up
 
         public string About()
         {
-            string about = this.Engine.About();
+            string about = this.Engine.About() + " and Current altitude is " + this.CurrentAltitude + " ft";
+
             return about;
 
         }
@@ -35,10 +36,11 @@ namespace Sprint_0_Warm_Up
                 takingoff = "taking off";
                 this.isFlying = true;
 
+
             }
             else
             {
-                takingoff = "You need so start your engine first";
+                takingoff = " You need so start your engine first";
             }
 
             return takingoff;
@@ -65,7 +67,7 @@ namespace Sprint_0_Warm_Up
             }
             else if (CurrentAltitude < 1000)
             {
-                Console.WriteLine("Crash");
+                Console.WriteLine("You will crash if you go this low.");
                 this.isFlying = false;
             }
         }
@@ -75,11 +77,13 @@ namespace Sprint_0_Warm_Up
             if (this.CurrentAltitude == howMuch)
             {
                 this.StopEngine();
+                this.CurrentAltitude = this.CurrentAltitude - howMuch;
                 this.isFlying = false;
+                System.Console.WriteLine("Successful land");
             }
             else if (this.CurrentAltitude < howMuch)
             {
-                Console.WriteLine("Crash");
+                Console.WriteLine("You will crash if you go this low.");
                 this.isFlying = false;
             }
         }
@@ -88,13 +92,13 @@ namespace Sprint_0_Warm_Up
         {
             if (this.CurrentAltitude == this.MaxAltitude)
             {
-                Console.WriteLine("You can't go higher");
+                Console.WriteLine("You can't go this high");
             }
             else if (this.CurrentAltitude + 1000 > this.MaxAltitude)
             {
-                Console.WriteLine("You can't go higher");
+                Console.WriteLine("You can't go this high");
             }
-            else if (this.CurrentAltitude > this.MaxAltitude)
+            else if (this.CurrentAltitude < this.MaxAltitude)
             {
                 this.CurrentAltitude = this.CurrentAltitude + 1000;
             }
@@ -104,11 +108,11 @@ namespace Sprint_0_Warm_Up
         {
             if (this.CurrentAltitude == this.MaxAltitude)
             {
-                System.Console.WriteLine("You can't go higher!");
+                System.Console.WriteLine("You can't go this high!");
             }
             else if (this.CurrentAltitude + HowMuch > this.MaxAltitude)
             {
-                System.Console.WriteLine("You can't go higher!");
+                System.Console.WriteLine("You can't go this high!");
             }
             else if (this.CurrentAltitude < this.MaxAltitude)
             {

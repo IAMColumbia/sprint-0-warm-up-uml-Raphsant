@@ -5,8 +5,9 @@
         public bool isStarted;
         public string about;
 
-        public Engine (){
-            
+        public Engine()
+        {
+
         }
 
         public Engine(string about)
@@ -27,9 +28,9 @@
 
         public string About()
         {
-            if (isStarted == false) about = this + "engine is not started";
+            if (isStarted == false) about = this + " engine is not started";
 
-            else if (isStarted == true) about = this + "engine is started";
+            else if (isStarted == true) about = this + " engine is started";
 
             return about;
 
