@@ -8,39 +8,112 @@ namespace Sprint_0_Warm_Up
 
         Engine Engine { get; set; }
 
+        public bool isFlying { get; set; }
+
+        public int MaxAltitude { get; set; }
+
+        
+
         public AerialVehicle()
         {
+            Engine engine = new Engine();
+            this.Engine = engine;
+        }
+
+        public string About()
+        {
+            string about = this.Engine.About();
+            return about;
 
         }
 
-        public bool About()
+        public string TakeOff()
         {
-            throw new NotImplementedException();
-        }
+            string takingoff;
+            if (this.Engine.isStarted == true)
+            {
+                takingoff = "taking off";
+                this.isFlying = true;
 
-        public bool TakeOff()
-        {
-            throw new NotImplementedException();
+            }
+            else
+            {
+                takingoff = "You need so start your engine first";
+            }
+
+            return takingoff;
         }
 
         public void StartEngine()
         {
-            throw new NotImplementedException();
+            this.Engine.Start();
+
+        }
+
+        public void StopEngine()
+        {
+            this.Engine.Stop();
+            this.isFlying = false;
+        }
+
+        public void FlyDown()
+        {
+            if (CurrentAltitude == 1000)
+            {
+                this.StopEngine();
+                this.isFlying = false;
+            }
+            else if (CurrentAltitude < 1000)
+            {
+                Console.WriteLine("Crash");
+                this.isFlying = false;
+            }
         }
 
         public void FlyDown(int howMuch)
         {
-            throw new NotImplementedException();
+            if (this.CurrentAltitude == howMuch)
+            {
+                this.StopEngine();
+                this.isFlying = false;
+            }
+            else if (this.CurrentAltitude < howMuch)
+            {
+                Console.WriteLine("Crash");
+                this.isFlying = false;
+            }
         }
 
         internal void FlyUp()
         {
-            throw new NotImplementedException();
+            if (this.CurrentAltitude == this.MaxAltitude)
+            {
+                Console.WriteLine("You can't go higher");
+            }
+            else if (this.CurrentAltitude + 1000 > this.MaxAltitude)
+            {
+                Console.WriteLine("You can't go higher");
+            }
+            else if (this.CurrentAltitude > this.MaxAltitude)
+            {
+                this.CurrentAltitude = this.CurrentAltitude + 1000;
+            }
         }
 
         internal void FlyUp(int HowMuch)
         {
-            throw new NotImplementedException();
+            if (this.CurrentAltitude == this.MaxAltitude)
+            {
+                System.Console.WriteLine("You can't go higher!");
+            }
+            else if (this.CurrentAltitude + HowMuch > this.MaxAltitude)
+            {
+                System.Console.WriteLine("You can't go higher!");
+            }
+            else if (this.CurrentAltitude < this.MaxAltitude)
+            {
+                this.CurrentAltitude = this.CurrentAltitude + HowMuch;
+            }
         }
     }
 }
