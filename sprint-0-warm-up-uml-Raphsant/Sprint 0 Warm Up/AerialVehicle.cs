@@ -86,9 +86,12 @@ namespace Sprint_0_Warm_Up
                 Console.WriteLine("You will crash if you go this low.");
                 this.isFlying = false;
             }
+            else{
+                this.CurrentAltitude -= howMuch;
+            }
         }
 
-        internal void FlyUp()
+        public void FlyUp()
         {
             if (this.CurrentAltitude == this.MaxAltitude)
             {
@@ -104,7 +107,7 @@ namespace Sprint_0_Warm_Up
             }
         }
 
-        internal void FlyUp(int HowMuch)
+        public void FlyUp(int HowMuch)
         {
             if (this.CurrentAltitude == this.MaxAltitude)
             {
